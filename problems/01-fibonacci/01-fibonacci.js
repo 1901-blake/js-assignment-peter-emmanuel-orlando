@@ -3,10 +3,12 @@ Define function: fib(n)
 Return the nth number in the fibonacci sequence. */
 function fib(n)
 {
-  let result = 0;
-  for( let i = 0; i <= n; i++)
-  {
-    result += i;
-  }
-  return result;
+  if(n <= 0) return -1;
+  if(n <= 2) return 1;
+  return fib(n - 1) + fib( n - 2);
+}
+
+for(let i = 0; i < 10; i++)
+{
+  console.log("fib of " + i + " is " + fib(i) + "\n");
 }

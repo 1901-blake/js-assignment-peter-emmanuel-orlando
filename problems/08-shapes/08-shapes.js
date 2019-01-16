@@ -68,10 +68,7 @@ function printDiamond(height, character)
   for (let i = 0; i < height; i++)
   {
     let filled = (i * 2) + 1;
-    console.log(filled);
-    if(filled > height) 
-      filled -= (filled%height);
-    console.log(filled%height);
+    if(filled > height) filled = 2*height - filled;
 
     let empty = (height - filled)/2;
     
@@ -87,4 +84,4 @@ function printDiamond(height, character)
 
 
 
-console.log(printDiamond( 5, '#'));
+console.log(printDiamond( 1, '#'));

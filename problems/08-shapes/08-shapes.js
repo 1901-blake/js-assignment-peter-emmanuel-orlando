@@ -20,6 +20,71 @@ Example for printShape("Diamond", 5, "*");
  ***
   * 
 */
-function printShape(shape, height, character) {
-  
+function printShape(shape, height, character)
+{
+  var s = (''+shape).toUpperCase();
+  if(shape === 'DIAMOND') printDiamond(height, character);
+  else if(shape === 'TRIANGLE') printTriangle(height, character);
+  else if(shape === 'SQUARE') printSquare(height, character);
 }
+
+function printTriangle(height, character)
+{
+  let result = '';
+
+  for (let i = 0; i < height; i++)
+  {
+    for (let k = 0; k < height; k++)
+    {
+      if(k <= i) 
+        result += character;
+      else
+        result += ' ';
+    }
+    result += '\n';    
+  }
+  return result;
+}
+
+
+function printSquare(height, character)
+{
+  let result = '';
+
+  for (let i = 0; i < height; i++)
+  {
+    for (let k = 0; k < height; k++)
+    {
+      result += character;
+    }
+    result += '\n';    
+  }
+  return result;
+}
+
+function printDiamond(height, character)
+{
+  let result = '';
+  for (let i = 0; i < height; i++)
+  {
+    let filled = (i * 2) + 1;
+    console.log(filled);
+    if(filled > height) 
+      filled -= (filled%height);
+    console.log(filled%height);
+
+    let empty = (height - filled)/2;
+    
+    for(let m = 0; m < empty; m++)
+      result += ' ';
+    for(let n = 0; n < filled; n++)
+      result += character;
+    result += '\n';    
+  }
+  return result;
+}
+
+
+
+
+console.log(printDiamond( 5, '#'));
